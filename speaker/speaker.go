@@ -25,7 +25,7 @@ var (
 // The bufferSize argument specifies the number of samples of the speaker's buffer. Bigger
 // bufferSize means lower CPU usage and more reliable playback. Lower bufferSize means better
 // responsiveness and less delay.
-func Init(sampleRate beep.SampleRate, bufferSize int) error {
+func Init(deviceNum int, sampleRate beep.SampleRate, bufferSize int) error {
 	mu.Lock()
 	defer mu.Unlock()
 
@@ -38,7 +38,7 @@ func Init(sampleRate beep.SampleRate, bufferSize int) error {
 	buf = make([]byte, numBytes)
 
 	var err error
-	context, err = oto.NewContext(-1, int(sampleRate), 2, 2, numBytes)
+	context, err = oto.NewContext(deviceNum, int(sampleRate), 2, 2, numBytes)
 	if err != nil {
 		return errors.Wrap(err, "failed to initialize speaker")
 	}

@@ -157,7 +157,7 @@ func main() {
 	}
 	defer streamer.Close()
 
-	speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/30))
+	speaker.Init(-1, format.SampleRate, format.SampleRate.N(time.Second/30))
 
 	screen, err := tcell.NewScreen()
 	if err != nil {
