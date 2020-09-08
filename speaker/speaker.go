@@ -2,11 +2,12 @@
 package speaker
 
 import (
-	"sync"
+    "sync"
 
-	"github.com/faiface/beep"
-	"github.com/hajimehoshi/oto"
-	"github.com/pkg/errors"
+    "github.com/leibnewton/oto"
+    "github.com/pkg/errors"
+
+    "github.com/leibnewton/beep"
 )
 
 var (
@@ -37,7 +38,7 @@ func Init(sampleRate beep.SampleRate, bufferSize int) error {
 	buf = make([]byte, numBytes)
 
 	var err error
-	context, err = oto.NewContext(int(sampleRate), 2, 2, numBytes)
+	context, err = oto.NewContext(-1, int(sampleRate), 2, 2, numBytes)
 	if err != nil {
 		return errors.Wrap(err, "failed to initialize speaker")
 	}

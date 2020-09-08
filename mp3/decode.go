@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/faiface/beep"
-	gomp3 "github.com/hajimehoshi/go-mp3"
+	gomp3 "github.com/leibnewton/go-mp3"
 	"github.com/pkg/errors"
+
+	"github.com/leibnewton/beep"
 )
 
 const (
